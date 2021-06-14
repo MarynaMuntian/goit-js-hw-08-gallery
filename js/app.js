@@ -81,7 +81,7 @@ const galleryItem = galleryItems.map(galleryItem => {
       alt="${galleryItem.description}"
     />
   </a>
-</li`
+</li>`
 }).join('');
 
-gallery.innerHTML(galleryItem);
+gallery.innerHTML = galleryItem;
