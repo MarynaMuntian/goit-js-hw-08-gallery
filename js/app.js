@@ -97,6 +97,10 @@ const modalOpen = (evt) => {
   modal.classList.add('is-open');
   modalImg.src = evt.target.dataset.source;
   modalImg.alt = evt.target.alt;
+
+  modalBtnClose.addEventListener('click', modalClose);
+  document.addEventListener("keydown", modalCloseByEsc);
+  overlay.addEventListener('click', modalCloseByOverlay);
 };
 
 const modalClose = (evt) => {
@@ -108,6 +112,10 @@ const modalClose = (evt) => {
 
   modal.classList.remove('is-open');
   modalImg.removeAttribute('src');
+
+  modalBtnClose.removeEventListener('click', modalClose);
+  document.removeEventListener("keydown", modalCloseByEsc);
+  overlay.removeEventListener('click', modalCloseByOverlay);
 };
 
 const modalCloseByEsc = (evt) => {
@@ -124,6 +132,3 @@ const modalCloseByOverlay = (evt) => {
 };
 
 gallery.addEventListener('click', modalOpen);
-modalBtnClose.addEventListener('click', modalClose);
-document.addEventListener("keydown", modalCloseByEsc);
-overlay.addEventListener('click', modalCloseByOverlay);
